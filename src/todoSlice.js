@@ -8,6 +8,10 @@ export const todoSlice = createSlice({
         text: "Go to the store",
         isCompleted: true,
       },
+      {
+        text: "New Todo",
+        isCompleted: false,
+      },
     ],
   },
   reducers: {
@@ -27,7 +31,10 @@ export const todoSlice = createSlice({
     },
     deleteTodo: (state) => {
       const text = "New Todo";
-      state.value - state.value.filter((t) => t.text !== text);
+      state.value = state.value.filter((t) => t.text !== text);
     },
   },
 });
+
+export const { createTodo, markTodoAsCompleted, deleteTodo } =
+  todoSlice.actions;
