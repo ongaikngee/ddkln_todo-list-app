@@ -8,9 +8,9 @@ export default function TodoListItems({ todo }) {
       <h3>{todo.text}</h3>
       {todo.isCompleted && <p>Completed!</p>}
       {todo.isCompleted ? (
-        <button onClick={() => dispatch(deleteTodo())}>Delete Item</button>
+        <button onClick={() => dispatch(deleteTodo(todo.text))}>Delete Item</button>
       ) : (
-        <button onClick={() => dispatch(markTodoAsCompleted())}>
+        <button onClick={() => dispatch(markTodoAsCompleted(todo.text))}>
           Mark as Completed
         </button>
       )}
