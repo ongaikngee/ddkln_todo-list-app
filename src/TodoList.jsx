@@ -1,11 +1,11 @@
+import NewTodoForm from "./NewTodoForm";
 import TodoListItems from "./TodoListItems";
 
 export default function TodoList({ completedTodos, incompletedTodos }) {
   return (
     <div>
       <h1>My Todos</h1>
-      <p>New todo fom will go here....</p>
-
+      <NewTodoForm />
       <h3>Completed:</h3>
       {completedTodos.map((todo, index) => (
         <TodoListItems todo={todo} key={index} />
