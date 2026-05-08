@@ -39,3 +39,14 @@ export const deleteTodo = (todoId) => async (dispatch, getState) => {
         console.log(e)
     }
 }
+
+export const markTodoAsCompleted = (todoId) => async (dispatch, getState) => {
+    try {
+        const response = await axios.put("http://localhost:3000/api/todos/" + todoId, {isCompleted: true});
+        const updateTodo = response.data;
+        const updatedTodos = getState().todos.value.map(t=>t.id === todoId ? updateTodo : t)
+        dispatch(todosUpdated(updatedTodos));
+    } catch(e) {
+        console.log(e)
+    }
+}

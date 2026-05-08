@@ -7,15 +7,6 @@ export const todoSlice = createSlice({
     value: [],
   },
   reducers: {
-    markTodoAsCompleted: (state, action) => {
-      const text = action.payload;
-      const todo = state.value.find((t) => t.text === text);
-      todo.isCompleted = true;
-    },
-    deleteTodo: (state, action) => {
-      const text = action.payload;
-      state.value = state.value.filter((t) => t.text !== text);
-    },
     todosUpdated: (state, action) => {
       const updatedTodos = action.payload;
       state.value = updatedTodos;
@@ -28,5 +19,4 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { markTodoAsCompleted, deleteTodo, todosUpdated } =
-  todoSlice.actions;
+export const { todosUpdated } = todoSlice.actions;
