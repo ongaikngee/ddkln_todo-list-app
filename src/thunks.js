@@ -29,3 +29,13 @@ export const createTodo = (newToDoText) => async (dispatch, getState) => {
         console.log(e)
     }
 }
+
+export const deleteTodo = (todoId) => async (dispatch, getState) => {
+    try {
+        await axios.delete("http://localhost:3000/api/todos/" + todoId);
+        const updatedTodos = getState().todos.value.filter(t => t.id !== todoId)
+        dispatch(todosUpdated(updatedTodos));
+    } catch(e) {
+        console.log(e)
+    }
+}

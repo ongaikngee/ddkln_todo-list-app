@@ -16,12 +16,12 @@ export default function TodoList() {
       ) : (
         <>
           <h3>Completed:</h3>
-          {todos.map((todo, index) => (
-            <TodoListItems todo={todo} key={index} />
+          {todos.map((todo) => (
+            <TodoListItems todo={todo} key={todo.id} />
           ))}
           <h3>Incomplete:</h3>
-          {todos.map((todo, index) => (
-            <TodoListItems todo={todo} key={index} />
+          {todos.map((todo) => (
+            <TodoListItems todo={todo} key={todo.id} />
           ))}
         </>
       )}
